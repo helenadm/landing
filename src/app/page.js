@@ -7,9 +7,7 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
+  GitlabIcon,
 } from '@/components/SocialIcons'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
@@ -100,7 +98,7 @@ function ArrowDownIcon(props) {
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+      <Icon className="h-12 w-12 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   )
 }
@@ -251,7 +249,31 @@ function Photos() {
     </div>
   )
 }
+function Demo() {
 
+  return (
+    <div className="mt-16 sm:mt-20">
+      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+        <div
+          className={clsx(
+            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+          )}
+        >
+
+          <iframe
+            src={'https://www.loom.com/embed/f714ef5a9ca54c3fa3b81ef6f7bb341d?sid=632d89c8-32c1-4bdb-8dfe-3b203aba5b60'}
+            frameBorder="0"
+            allowFullScreen
+            className="abosolute t-0 l-0 w-100% h-100%"
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+          >       
+          </iframe>
+    
+        </div>
+      </div>
+    </div>
+  )
+}
 export default async function Home() {
 
   // let articles = (await getAllArticles()).slice(0, 4)
@@ -261,39 +283,30 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
+            Kyso is open source now!
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+            Kyso - the universal aggregator for all research formats was shut down on September 31, 2023.
+          </p>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            But don't worry we open source the project.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
+              href="https://gitlab.com"
+              aria-label="Check Gitlab"
+              icon={GitlabIcon}
             />
             <SocialLink
               href="https://github.com"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
-            <SocialLink
-              href="https://linkedin.com"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
           </div>
         </div>
       </Container>
       <Photos />
+      <Demo />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
         <div className="flex flex-col gap-16">
