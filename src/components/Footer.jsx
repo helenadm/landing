@@ -1,39 +1,51 @@
-import Link from 'next/link'
+const navigation = [
+  {
+    name: 'Gitlab',
+    href: '#',
+    icon: (props) => (
+      <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      {...props}
+      >
+      <path d="M503.5 204.6L502.8 202.8L433.1 21.02C431.7 17.45 429.2 14.43 425.9 12.38C423.5 10.83 420.8 9.865 417.9 9.57C415 9.275 412.2 9.653 409.5 10.68C406.8 11.7 404.4 13.34 402.4 15.46C400.5 17.58 399.1 20.13 398.3 22.9L351.3 166.9H160.8L113.7 22.9C112.9 20.13 111.5 17.59 109.6 15.47C107.6 13.35 105.2 11.72 102.5 10.7C99.86 9.675 96.98 9.295 94.12 9.587C91.26 9.878 88.51 10.83 86.08 12.38C82.84 14.43 80.33 17.45 78.92 21.02L9.267 202.8L8.543 204.6C-1.484 230.8-2.72 259.6 5.023 286.6C12.77 313.5 29.07 337.3 51.47 354.2L51.74 354.4L52.33 354.8L158.3 434.3L210.9 474L242.9 498.2C246.6 500.1 251.2 502.5 255.9 502.5C260.6 502.5 265.2 500.1 268.9 498.2L300.9 474L353.5 434.3L460.2 354.4L460.5 354.1C482.9 337.2 499.2 313.5 506.1 286.6C514.7 259.6 513.5 230.8 503.5 204.6z"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'GitHub',
+    href: '#',
+    icon: (props) => (
+      <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+        <path
+          fillRule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+  },
+]
 
-import { ContainerInner, ContainerOuter } from '@/components/Container'
-
-function NavLink({ href, children }) {
+export default function Footer() {
   return (
-    <Link
-      href={href}
-      className="transition hover:text-teal-500 dark:hover:text-teal-400"
-    >
-      {children}
-    </Link>
-  )
-}
-
-export function Footer() {
-  return (
-    <footer className="mt-32 flex-none">
-      <ContainerOuter>
-        <div className="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
-          <ContainerInner>
-            <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/speaking">Speaking</NavLink>
-                <NavLink href="/uses">Uses</NavLink>
-              </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Kyso.io All rights
-                reserved.
-              </p>
-            </div>
-          </ContainerInner>
+    <footer className="bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+        <div className="flex justify-center space-x-6 md:order-2">
+          {navigation.map((item) => (
+            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+              <span className="sr-only">{item.name}</span>
+              <item.icon className="h-6 w-6" aria-hidden="true" />
+            </a>
+          ))}
         </div>
-      </ContainerOuter>
+        <div className="mt-8 md:order-1 md:mt-0">
+          <p className="text-center text-xs leading-5 text-gray-500">
+            &copy; 2023 Kyso. Open source.
+          </p>
+        </div>
+      </div>
     </footer>
   )
 }

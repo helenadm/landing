@@ -5,6 +5,8 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import _Header from '@/components/kyso/header'
+import Text from '@/components/kyso/text'
 import {
   GitHubIcon,
   GitlabIcon,
@@ -253,10 +255,10 @@ function Demo() {
 
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+      <div className="-my-4 w-full aspect-video flex justify-center overflow-hidden py-4">
         <div
           className={clsx(
-            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+            'relative aspect-[10/10] w-full flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
           )}
         >
 
@@ -280,7 +282,9 @@ export default async function Home() {
   // console.log('articles', articles)
   return (
     <>
-      <Container className="mt-9">
+    <_Header />
+    <Text />
+      {/* <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
             Kyso is open source now!
@@ -309,17 +313,17 @@ export default async function Home() {
       <Demo />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16"> */}
             {/* {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))} */}
-          </div>
+          {/* </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
             <Resume />
           </div>
         </div>
-      </Container>
-    </>
+      </Container>*/}
+    </> 
   )
 }
