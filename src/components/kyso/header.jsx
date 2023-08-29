@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
-
 import avatarImage from '@/images/avatar.jpg'
 import {
     GitHubIcon,
@@ -10,9 +8,9 @@ import { Button } from '../Button'
 
   function SocialLink({ icon: Icon, ...props }) {
     return (
-      <Link className="group -m-1 p-1" {...props}>
-        <Icon className="h-8 w-8 fill-gray-800 transition group-hover:fill-gray-600 " />
-      </Link>
+      <span className="group -m-1 p-1">
+        <Icon className="h-6 w-6 fill-white transition group-hover:fill-gray-100 " />
+      </span>
     )
   }
 
@@ -25,46 +23,42 @@ export default function Example() {
             <div className="mx-auto max-w-2xl">
               <div className="max-w-lg">
                 <Image
-                  className="h-14 w-14"
+                  className="h-11 w-11"
                   src={avatarImage}
                   alt="Kyso"
                 />
-            
-                <h1 className="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    Kyso is open source now!
+                <div className="mt-24 sm:mt-32 lg:mt-16">
+                </div>
+                <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                  Kyso is now open-source!
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Kyso - the universal aggregator for all research formats was shut down on September 31, 2023.
+                  Kyso - the universal aggregator for all research formats was shut down on September 31, 2023.
                 </p>
-                <div className="mt-6 sm:mt-32 lg:mt-16">
-                    <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
+                <div className="mt-6">
+                    <span className="inline-flex items-center space-x-2 text-sm leading-6 font-semibold text-gray-900">
                       <span>Check our open source project here:</span>
                     </span>
                 </div> 
-                {/* <div className="mt-6 flex gap-6">
-                    <SocialLink
+                <div className="mt-6 flex items-center gap-x-6">
+                  <Button
                     href="https://gitlab.com"
                     aria-label="Check Gitlab"
-                    icon={GitlabIcon}
-                    />
-                    <SocialLink
-                    href="https://github.com"
-                    aria-label="Follow on GitHub"
-                    icon={GitHubIcon}
-                    />
-
-                </div> */}
-                <div className="mt-6 flex items-center gap-x-6">
-               
-                  <a
-                    href="https://github.com"
-                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
+                    <SocialLink
+                      icon={GitlabIcon}
+                    />
                     Gitlab
-                  </a>
-                  <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                    GitHub <span aria-hidden="true">→</span>
-                  </a>
+                  </Button>
+                  <Button
+                    href="https://gitlab.com"
+                    aria-label="Check Gitlab"
+                  >
+                    <SocialLink
+                      icon={GitHubIcon}
+                    />
+                    Gitlab
+                  </Button>
                 </div>
               </div>
             </div>
@@ -74,13 +68,25 @@ export default function Example() {
               className="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
               aria-hidden="true"
             />
-                <iframe
+            <div className="shadow-lg md:rounded-3xl">
+              <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none flex">
+                <div className="w-screen overflow-hidden">
+                  <div className="min-h-screen h-48 min-w-screen">
+                  <iframe
                     src={'https://www.loom.com/embed/f714ef5a9ca54c3fa3b81ef6f7bb341d?sid=632d89c8-32c1-4bdb-8dfe-3b203aba5b60'}
                     frameBorder="0"
                     allowFullScreen
                     className="abosolute t-0 l-0 w-100% h-100% rounded-xl"
                     style={{ width: '100%', height: '100%' }}
                 />
+              </div>
+                  <div
+                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
