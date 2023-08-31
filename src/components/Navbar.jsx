@@ -200,9 +200,9 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl pt-10 ">
       <nav className="flex items-center justify-between px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <span href="#" className="-m-1.5 p-1.5">
             <Avatar />
-          </a>
+          </span>
         </div>
         <MobileNavigation className="pointer-events-auto md:hidden" />
         <DesktopNavigation className="pointer-events-auto hidden md:block" />
