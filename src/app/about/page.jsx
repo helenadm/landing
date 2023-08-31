@@ -2,13 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from '@/components/SocialIcons'
+} from '@/components/Icons'
 import portraitImage from '@/images/portrait.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -44,7 +40,7 @@ export const metadata = {
 
 export default function About() {
   return (
-    <Container className="mt-16 sm:mt-32">
+    <div className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
         <div className="lg:pl-20">
           <div className="max-w-xs px-2.5 lg:max-w-none">
@@ -106,6 +102,6 @@ export default function About() {
           </ul>
         </div>
       </div>
-    </Container>
+    </div>
   )
 }

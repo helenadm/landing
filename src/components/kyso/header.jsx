@@ -1,34 +1,21 @@
-import Image from 'next/image'
-import avatarImage from '@/images/avatar.jpg'
+import { Navbar } from '@/components/kyso/navbar'
 import {
     GitHubIcon,
     GitlabIcon,
-  } from '@/components/SocialIcons'
+  } from '@/components/Icons'
+import { SocialLink } from '@/components/kyso/SocialIcons'
 import { Button } from '../Button'
 
-  function SocialLink({ icon: Icon, ...props }) {
-    return (
-      <span className="group -m-1 p-1">
-        <Icon className="h-6 w-6 fill-white transition group-hover:fill-gray-100 " />
-      </span>
-    )
-  }
 
-export default function Example() {
+export default function Header() {
   return (
     <div className="bg-white">
       <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
+        <Navbar/>
         <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
           <div className="px-6 lg:px-0 lg:pt-4">
             <div className="mx-auto max-w-2xl">
               <div className="max-w-lg">
-                <Image
-                  className="h-11 w-11"
-                  src={avatarImage}
-                  alt="Kyso"
-                />
-                <div className="mt-24 sm:mt-32 lg:mt-16">
-                </div>
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                   Kyso is now open-source!
                 </h1>
@@ -47,6 +34,7 @@ export default function Example() {
                   >
                     <SocialLink
                       icon={GitlabIcon}
+                      className="h-6 w-6 fill-white transition group-hover:fill-gray-100 "
                     />
                     Gitlab
                   </Button>
@@ -56,6 +44,7 @@ export default function Example() {
                   >
                     <SocialLink
                       icon={GitHubIcon}
+                      className="h-6 w-6 fill-white transition group-hover:fill-gray-100 "
                     />
                     Gitlab
                   </Button>
@@ -70,21 +59,21 @@ export default function Example() {
             />
             <div className="shadow-lg md:rounded-3xl">
               <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none flex">
-                <div className="w-screen overflow-hidden">
+                <div className="w-screen overflow-hidden max-h-max">
                   <div className="min-h-screen h-48 min-w-screen">
-                  <iframe
-                    src={'https://www.loom.com/embed/f714ef5a9ca54c3fa3b81ef6f7bb341d?sid=632d89c8-32c1-4bdb-8dfe-3b203aba5b60'}
-                    frameBorder="0"
-                    allowFullScreen
-                    className="abosolute t-0 l-0 w-100% h-100% rounded-xl"
-                    style={{ width: '100%', height: '100%' }}
-                />
-              </div>
-                  <div
-                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10"
-                    aria-hidden="true"
-                  />
-                </div>
+                    <iframe
+                      src={'https://www.loom.com/embed/f714ef5a9ca54c3fa3b81ef6f7bb341d?sid=632d89c8-32c1-4bdb-8dfe-3b203aba5b60'}
+                      frameBorder="0"
+                      allowFullScreen
+                      className="abosolute t-0 l-0 w-100% h-100% rounded-xl"
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  </div>
+                    <div
+                      className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10"
+                      aria-hidden="true"
+                    />
+                  </div>
               </div>
             </div>
           </div>
