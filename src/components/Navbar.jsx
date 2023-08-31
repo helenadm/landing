@@ -12,7 +12,7 @@ import {
   GitlabIcon,
   Docs
 } from '@/components/Icons'
-import { SocialLink } from '@/components/kyso/SocialIcons'
+import { SocialIcon } from '@/components/SocialIcon'
 import avatarImage from '@/images/avatar.jpg'
 
 function CloseIcon(props) {
@@ -99,19 +99,19 @@ function MobileNavigation(props) {
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 ">
                 <MobileNavItem href="/about">
-                    <SocialLink icon={GitlabIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                    <SocialIcon icon={GitlabIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 " />
                     Gitlab
                 </MobileNavItem>
                 <MobileNavItem href="/about">
-                    <SocialLink icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                    <SocialIcon icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
                     Github
                 </MobileNavItem>
                 <MobileNavItem href="/about">
-                    <SocialLink icon={Book} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                    <SocialIcon icon={Book} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
                     Gitbook
                 </MobileNavItem>
-                <MobileNavItem href="/about">
-                    <SocialLink icon={Docs} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                <MobileNavItem href="https://docs.kyso.io">
+                    <SocialIcon icon={Docs} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
                     Docs
                 </MobileNavItem>
               </ul>
@@ -151,19 +151,19 @@ function DesktopNavigation(props) {
     <nav {...props}>
       <ul className="flex items-center rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur ">
         <NavItem href="/about">
-            <SocialLink icon={GitlabIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+            <SocialIcon icon={GitlabIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
             Gitlab
         </NavItem>
         <NavItem href="/about">
-            <SocialLink icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+            <SocialIcon icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
             Github
         </NavItem>
         <NavItem href="/about" >
-            <SocialLink icon={Book} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+            <SocialIcon icon={Book} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
             Gitbook
         </NavItem>
-        <NavItem href="/about">
-            <SocialLink icon={Docs} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+        <NavItem href="https://docs.kyso.io">
+            <SocialIcon icon={Docs} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
             Docs
         </NavItem>
       </ul>
@@ -171,12 +171,6 @@ function DesktopNavigation(props) {
   )
 }
 
-
-function clamp(number, a, b) {
-  let min = Math.min(a, b)
-  let max = Math.max(a, b)
-  return Math.min(Math.max(number, min), max)
-}
 
 function Avatar({ large = false, className, ...props }) {
   return (
@@ -200,108 +194,6 @@ function Avatar({ large = false, className, ...props }) {
 }
 
 export function Navbar() {
-
-  let headerRef = useRef(null)
-  let avatarRef = useRef(null)
-  let isInitial = useRef(true)
-
-  // useEffect(() => {
-  //   let downDelay = avatarRef.current?.offsetTop ?? 0
-  //   let upDelay = 64
-
-  //   function setProperty(property, value) {
-  //     document.documentElement.style.setProperty(property, value)
-  //   }
-
-  //   function removeProperty(property) {
-  //     document.documentElement.style.removeProperty(property)
-  //   }
-
-  //   function updateHeaderStyles() {
-  //     if (!headerRef.current) {
-  //       return
-  //     }
-
-  //     let { top, height } = headerRef.current.getBoundingClientRect()
-  //     let scrollY = clamp(
-  //       window.scrollY,
-  //       0,
-  //       document.body.scrollHeight - window.innerHeight,
-  //     )
-
-  //     if (isInitial.current) {
-  //       setProperty('--header-position', 'sticky')
-  //     }
-
-  //     setProperty('--content-offset', `${downDelay}px`)
-
-  //     if (isInitial.current || scrollY < downDelay) {
-  //       setProperty('--header-height', `${downDelay + height}px`)
-  //       setProperty('--header-mb', `${-downDelay}px`)
-  //     } else if (top + height < -upDelay) {
-  //       let offset = Math.max(height, scrollY - upDelay)
-  //       setProperty('--header-height', `${offset}px`)
-  //       setProperty('--header-mb', `${height - offset}px`)
-  //     } else if (top === 0) {
-  //       setProperty('--header-height', `${scrollY + height}px`)
-  //       setProperty('--header-mb', `${-scrollY}px`)
-  //     }
-
-  //     if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
-  //       setProperty('--header-inner-position', 'fixed')
-  //       removeProperty('--header-top')
-  //       removeProperty('--avatar-top')
-  //     } else {
-  //       removeProperty('--header-inner-position')
-  //       setProperty('--header-top', '0px')
-  //       setProperty('--avatar-top', '0px')
-  //     }
-  //   }
-
-  //   function updateAvatarStyles() {
-
-  //     let fromScale = 1
-  //     let toScale = 36 / 64
-  //     let fromX = 0
-  //     let toX = 2 / 16
-
-  //     let scrollY = downDelay - window.scrollY
-
-  //     let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale
-  //     scale = clamp(scale, fromScale, toScale)
-
-  //     let x = (scrollY * (fromX - toX)) / downDelay + toX
-  //     x = clamp(x, fromX, toX)
-
-  //     setProperty(
-  //       '--avatar-image-transform',
-  //       `translate3d(${x}rem, 0, 0) scale(${scale})`,
-  //     )
-
-  //     let borderScale = 1 / (toScale / scale)
-  //     let borderX = (-toX + x) * borderScale
-  //     let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`
-
-  //     setProperty('--avatar-border-transform', borderTransform)
-  //     setProperty('--avatar-border-opacity', scale === toScale ? '1' : '0')
-  //   }
-
-  //   function updateStyles() {
-  //     updateHeaderStyles()
-  //     updateAvatarStyles()
-  //     isInitial.current = false
-  //   }
-
-  //   updateStyles()
-  //   window.addEventListener('scroll', updateStyles, { passive: true })
-  //   window.addEventListener('resize', updateStyles)
-
-  //   return () => {
-  //     window.removeEventListener('scroll', updateStyles)
-  //     window.removeEventListener('resize', updateStyles)
-  //   }
-  // })
-
   return (
     <>
       <header>

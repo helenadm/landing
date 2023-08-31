@@ -1,10 +1,10 @@
-import { Navbar } from '@/components/kyso/navbar'
+import { Navbar } from '@/components/Navbar'
 import {
     GitHubIcon,
     GitlabIcon,
   } from '@/components/Icons'
-import { SocialLink } from '@/components/kyso/SocialIcons'
-import { Button } from '../Button'
+import { SocialIcon } from '@/components/SocialIcon'
+import { Button } from './Button'
 
 
 export default function Header() {
@@ -32,7 +32,7 @@ export default function Header() {
                     href="https://gitlab.com"
                     aria-label="Check Gitlab"
                   >
-                    <SocialLink
+                    <SocialIcon
                       icon={GitlabIcon}
                       className="h-6 w-6 fill-white transition group-hover:fill-gray-100 "
                     />
@@ -42,7 +42,7 @@ export default function Header() {
                     href="https://gitlab.com"
                     aria-label="Check Gitlab"
                   >
-                    <SocialLink
+                    <SocialIcon
                       icon={GitHubIcon}
                       className="h-6 w-6 fill-white transition group-hover:fill-gray-100 "
                     />
@@ -59,8 +59,8 @@ export default function Header() {
             />
             <div className="shadow-lg md:rounded-3xl">
               <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none flex">
-                <div className="w-screen overflow-hidden max-h-max">
-                  <div className="min-h-screen h-48 min-w-screen">
+                <div className="w-screen overflow-hidden">
+                  <div className="min-h-[50vh] h-48 min-w-screen">
                     <iframe
                       src={'https://www.loom.com/embed/f714ef5a9ca54c3fa3b81ef6f7bb341d?sid=632d89c8-32c1-4bdb-8dfe-3b203aba5b60'}
                       frameBorder="0"
