@@ -98,21 +98,21 @@ function MobileNavigation(props) {
             </div>
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 ">
-                <MobileNavItem href="/about">
+                {/* <MobileNavItem href="/about">
                     <SocialIcon icon={GitlabIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 " />
                     Gitlab
+                </MobileNavItem> */}
+                <MobileNavItem href="/about">
+                  <SocialIcon icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                  Github
                 </MobileNavItem>
                 <MobileNavItem href="/about">
-                    <SocialIcon icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
-                    Github
-                </MobileNavItem>
-                <MobileNavItem href="/about">
-                    <SocialIcon icon={Book} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
-                    Gitbook
+                  <SocialIcon icon={Book} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                  Gitbook
                 </MobileNavItem>
                 <MobileNavItem href="https://docs.kyso.io">
-                    <SocialIcon icon={Docs} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
-                    Docs
+                  <SocialIcon icon={Docs} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
+                  Docs
                 </MobileNavItem>
               </ul>
             </nav>
@@ -150,10 +150,10 @@ function DesktopNavigation(props) {
   return (
     <nav {...props}>
       <ul className="flex items-center rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur ">
-        <NavItem href="/about">
+        {/* <NavItem href="/about">
             <SocialIcon icon={GitlabIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
             Gitlab
-        </NavItem>
+        </NavItem> */}
         <NavItem href="/about">
             <SocialIcon icon={GitHubIcon} className="mr-1 h-4 w-4 fill-black transition group-hover:fill-gray-900 "/>
             Github

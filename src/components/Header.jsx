@@ -28,7 +28,7 @@ export default function Header() {
                     </span>
                 </div> 
                 <div className="mt-6 flex items-center gap-x-6">
-                  <Button
+                  {/* <Button
                     href="https://gitlab.com"
                     aria-label="Check Gitlab"
                   >
@@ -37,16 +37,16 @@ export default function Header() {
                       className="h-6 w-6 fill-white transition group-hover:fill-gray-100 "
                     />
                     Gitlab
-                  </Button>
+                  </Button> */}
                   <Button
                     href="https://gitlab.com"
-                    aria-label="Check Gitlab"
+                    aria-label="Check Github"
                   >
                     <SocialIcon
                       icon={GitHubIcon}
                       className="h-6 w-6 fill-white transition group-hover:fill-gray-100 "
                     />
-                    Gitlab
+                    Github
                   </Button>
                 </div>
               </div>
